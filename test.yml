@@ -1,0 +1,24 @@
+name: Mobile App Testing
+
+on: [push]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+        
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+          
+      - name: Install Appium
+        run: npm install -g appium
+
+      - name: Run Android Tests
+        run: python your_android_test_script.py
+
+      - name: Run iOS Tests
+        run: python your_ios_test_script
